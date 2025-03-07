@@ -1,23 +1,27 @@
 import { useQuery } from "@tanstack/react-query";
-import { axiosInstance } from "./services/api";
 const BASE_URL = import.meta.env.VITE_BASE_URL;
+import MainLayout from "./layouts/MainLayout";
+import WeatherBox from "./components/WeatherBox";
 
 function App() {
-  const getWeather = async () => {
-    const { data } = await axiosInstance.get("/current.json", {
-      params: {
-        q: "Mashhad",
-      },
-    });
-
-    return data;
-  };
-
-  const { data, isLoading } = useQuery({
-    queryKey: ["wheather"],
-    queryFn: getWeather,
-  });
-  return <>{isLoading ? <p>loading...</p> : <p>{data.location.name}</p>}</>;
+  return (
+    <>
+      <MainLayout>
+        <WeatherBox />
+      </MainLayout>
+      {/* {data &&
+        console.log(
+          data.forecast.forecastday[0].day.maxtemp_c,
+          data.forecast.forecastday[0].day.mintemp_c
+        )} */}
+      {/* {data &&
+        data.forecast.forecastday[0].hour.map((hour) =>
+          console.log(hour.time.split(" ")[1], hour.temp_c)
+        )} */}
+      {/* {data && console.log(data.current.temp_c)} */}
+      {/* {data && console.log(data.forecast.forecastday[0].day.condition.text)} */}
+    </>
+  );
 }
 
 export default App;
