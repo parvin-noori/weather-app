@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { axiosInstance } from "./services/api";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 function App() {
   const getWeather = async () => {
@@ -16,7 +17,7 @@ function App() {
     queryKey: ["wheather"],
     queryFn: getWeather,
   });
-  return <>{data ? console.log(data.location) : null}</>;
+  return <>{isLoading ? <p>loading...</p> : <p>{data.location.name}</p>}</>;
 }
 
 export default App;
