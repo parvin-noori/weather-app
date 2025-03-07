@@ -18,6 +18,7 @@ export default function WeatherBox() {
             <TodayWeather data={data} />
             <HourlyWeather data={data}/>
             <WeeklyWeather data={data} />
+          
           </div>
         )}
       </div>
