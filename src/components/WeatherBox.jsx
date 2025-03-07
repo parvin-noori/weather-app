@@ -3,6 +3,7 @@ import { WeatherContext } from "../contexts/weather-context";
 import TodayWeather from "./TodayWeather";
 import LocationTitle from "./LocationTitle";
 import WeeklyWeather from "./WeeklyWeather";
+import HourlyWeather from "./HourlyWeather";
 
 export default function WeatherBox() {
   const { data, isLoading } = useContext(WeatherContext);
@@ -15,6 +16,7 @@ export default function WeatherBox() {
           <div className="flex flex-col gap-y-5 items-center">
             <LocationTitle data={data} />
             <TodayWeather data={data} />
+            <HourlyWeather data={data}/>
             <WeeklyWeather data={data} />
           </div>
         )}
