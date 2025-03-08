@@ -1,4 +1,5 @@
 import React from "react";
+import { getIconUrl } from "../utils/weather";
 
 export default function DailyWeather({ day, data }) {
   const getDayName = (dateString) => {
@@ -16,12 +17,13 @@ export default function DailyWeather({ day, data }) {
   };
   return (
     <li className="grid grid-cols-4 [&>span]:flex [&>span]:justify-center">
-      <p className="me-2">{getDayName(day.date)}</p>
+      {console.log(day)}
+      <p className="me-2">{getDayName(day.Date)}</p>
       <span>
-        <img src={day.day.condition.icon} alt="icon" className="size-8" />
+        <img src={getIconUrl(day.Day.Icon)} alt={day.Day.IconPhrase} className="size-8" />
       </span>
-      <span>{day.day.maxtemp_c}°</span>
-      <span>{day.day.mintemp_c}°</span>
+      <span>{day.Temperature.Maximum.Value}°</span>
+      <span>{day.Temperature.Minimum.Value}°</span>
     </li>
   );
 }

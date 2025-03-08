@@ -16,9 +16,8 @@ export default function WeatherBox() {
           <div className="flex flex-col gap-y-5 items-center">
             <LocationTitle data={data} />
             <TodayWeather data={data} />
-            <HourlyWeather data={data}/>
+            <HourlyWeather data={data} />
             <WeeklyWeather data={data} />
-          
           </div>
         )}
       </div>

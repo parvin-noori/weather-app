@@ -4,7 +4,7 @@ import DailyWeather from "./DailyWeather";
 export default function WeeklyWeather({ data }) {
   return (
     <ul>
-      {data.forecast.forecastday.map((day, index) => (
+      {data.forecastData.DailyForecasts.map((day, index) => (
         <DailyWeather key={index} day={day} data={data} />
       ))}
     </ul>
